@@ -38,8 +38,15 @@ app.use((req, res, next) => {
 ░▀▀▀░▀░▀░▀▀░░▀░░░▀▀▀░▀▀▀░▀░▀░░▀░░▀▀▀
 */
 
+app.get("/test", (req, res) => {
+    const nombre = req.query.nombre;
+    const edad = req.query.edad;
+    res.status(200).send("Hola " + nombre + " " + edad);
+})
+
 app.get('/grab', (req, res) => { // captura los datos enviados por el cliente
     const data = req.query.data;
+    console.log(data,nombre);
     if(data){
         texto += data + "\n";
         res.send('Datos guardados correctamente.');
